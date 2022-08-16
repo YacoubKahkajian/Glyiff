@@ -1,1 +1,46 @@
-
+<!DOCTYPE html>
+<html>
+   <head>
+		<script langauage="javascript" type="module" src="main.js" defer></script>
+		<script type="text/javascript" src="resources/gifler.js"></script>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<title>Glyiff</title>
+		<meta name="author" content="Yacoub Kahkajian">
+		<meta name="description" content="A light and fun web app to caption GIFs.">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=5.0, minimum-scale=0.7, user-scalable=no">
+   </head>
+   <body>
+		<h1>Glyiff</h1>
+		<div class="content">
+			<div id="canvasLocation">
+				<canvas id="view" width="400" height="400"></canvas>
+			</div>
+			<div class="options">
+				<!-- File upload -->
+				<input type="file" id="input" accept="image/gif" autocomplete=off></input><br></br>
+				<!-- Text box -->
+				<textarea id="caption" name="caption" rows="4" cols="50" autocomplete=off></textarea><br></br>
+				<div class="textOptions">
+					<!-- Font selection -->
+					<select name="fontDropdown" id="fontDropdown">
+					  <option value="sans-serif">Sans serif</option>
+					  <option value="serif">Serif</option>
+					  <option value="cursive">Comic Sans</option>
+					</select><br></br>
+					<!-- Bold text toggle -->
+					<label><input type="checkbox" id="boldText" name="boldText" value="bold" autocomplete=of><span class="label"><span id="boldTextButton">Bold?</span></label>
+					<!-- Color picker -->
+					<input type="color" id="textColor" name="textColor" value="#000000">
+				</div>
+				<p class="disclaimer hidden">Edit the text to apply new changes.</p>
+			</div>
+		</div>
+		<div class="credits">
+			<footer>
+				<p>made by <a href="https://github.com/YacoubKahkajian">Yacoub Kahkajian</a></p>
+				<p>with a little help from the <a href="https://github.com/themadcreator/gifler">Gifler library</a> by Bill Dwyer</p>
+			</footer>
+		</div>
+   </body>
+</html>
