@@ -52,7 +52,7 @@ function addText() {
 		
 		// Prevent the current line from extending beyond the canvas by establishing a character
 		// limit for each line. I set it to be the canvas width divided by what the width of a 
-		// lowercase a in the current font would be since that results in reasonable margins. 
+		// lowercase "a" in the current font would be since that results in reasonable margins.
 		// As you might guess, this would be much easier if all fonts were monospaced.
 		if (i > c.width/ctx.measureText("a").width) { 
 		
