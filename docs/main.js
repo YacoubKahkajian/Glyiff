@@ -4,10 +4,10 @@ const fontDropdown = document.getElementById('fontDropdown');
 const boldText = document.getElementById('boldText');
 const boldButtonText = document.getElementById("boldTextButton");
 const textColor = document.getElementById('textColor');
-var c = document.getElementById("view");
-var originalHeight = 0;
-var originalWidth = 0;
-var breaks = 1;
+let c = document.getElementById("view");
+let originalHeight = 0;
+let originalWidth = 0;
+let breaks = 1;
 fileElem.addEventListener("change", function(){handleFiles(false)}, false);
 caption.addEventListener("input", addText);
 fontDropdown.addEventListener("input", function(){document.querySelector(".disclaimer").classList.remove("hidden")}, false);
@@ -21,11 +21,11 @@ c.getContext("2d").font = '20px sans-serif';
 c.getContext("2d").fillText("Click here to try a sample GIF.", 70, 200);
 
 // Adding a little personality to the button.
-if (boldText.checked == true) {
+if (boldText.checked) {
 	boldButtonText.innerHTML = "Bold!";
 }
 
-boldText.addEventListener("click", e => {
+boldText.addEventListener("click", () => {
 	document.querySelector(".disclaimer").classList.remove("hidden");
 	if (boldButtonText.innerHTML == "Bold!") {
 		boldButtonText.innerHTML = "Bold?";
@@ -36,16 +36,16 @@ boldText.addEventListener("click", e => {
 });
 
 
-var brokenCaption = []; // Text is broken into elements in an array.
+let brokenCaption = []; // Text is broken into elements in an array.
 
 // Along with the self-explanatory name, this function also handles word wrapping.
 function addText() {
 	document.querySelector(".disclaimer").classList.add("hidden");
-	brokenCaption = []; // Reset whatever's currently in brokenCaption.
-	var i = 0; // Last character in the line.
-	var ctx = c.getContext("2d");
-	var text = caption.value; 
-	var textCheck = ""; // Measure the width of this string.
+	brokenCaption = []; // Reset whatever is currently in brokenCaption.
+	let i = 0; // Last character in the line.
+	const ctx = c.getContext("2d");
+	let text = caption.value;
+	let textCheck = ""; // Measure the width of this string.
 	while (text.length != textCheck.length) {
 		i++
 		textCheck = text.substring(0, i); //Add a new character to textCheck with each loop.
@@ -58,7 +58,7 @@ function addText() {
 		
 			// Break the text at the last word, except if there aren't any spaces on the current
 			// line, in which case break the line at the final character.
-			var k = textCheck.lastIndexOf(" ");
+			let k = textCheck.lastIndexOf(" ");
 			if (k < 0) {
 				k = i;
 			}
@@ -79,13 +79,13 @@ function addText() {
 }
 
 function changeFont(ctx) {
-	var lineNumber = 0;
+	let lineNumber = 0;
 	brokenCaption.forEach(line => {
 		lineNumber++;
 		ctx.fillStyle = textColor.value;
 		ctx.textAlign = "center";
 		ctx.font = "30px " + fontDropdown.value;
-		if (boldText.checked == true) {
+		if (boldText.checked) {
 			ctx.font = "bold " + ctx.font;
 		}
 		ctx.fillText(line, c.width/2, lineNumber*50);
@@ -93,18 +93,17 @@ function changeFont(ctx) {
 }
 
 function handleFiles(sample) {
-	var ctx = c.getContext("2d");
-	
+
 	// Reset everything when a new GIF is uploaded.
 	newGif();
 	caption.value = "";
 	breaks = 1;
 	
 	// Replace the img element in the HTML doc with the new image object.
-	var img = new Image;
+	let img = new Image;
 	if (sample) img.src = "resources/sample.gif";	
 	else img.src = URL.createObjectURL(fileElem.files[0]);		
-	var url = img.src;
+	let url = img.src;
 	img.onload = function(){
 	gifler(url).frames(c, onDrawFrame);
 		// Resize the GIF if it's too big (over 400 pixels high) for the sake of bandwidth,
