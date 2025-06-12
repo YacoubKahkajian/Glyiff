@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
    <head>
-		<script langauage="javascript" type="module" src="main.js" defer></script>
+		<script langauage="javascript" type="module" src="script.js" defer></script>
 		<script type="text/javascript" src="resources/gifler.js"></script>
-		<link rel="stylesheet" type="text/css" href="main.css">
+		<script type="text/javascript" src="resources/gif.js"></script>
+		<script type="text/javascript" src="resources/gif.worker.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<title>Glyiff</title>
 		<meta name="author" content="Yacoub Kahkajian">
 		<meta name="description" content="A light and fun web app to caption GIFs.">
@@ -27,19 +29,22 @@
 					  <option value="sans-serif">Sans serif</option>
 					  <option value="serif">Serif</option>
 					  <option value="cursive">Comic Sans</option>
+					  <option value="Futura">Futura (Mac only)</option>
 					</select><br></br>
 					<!-- Bold text toggle -->
 					<label><input type="checkbox" id="boldText" name="boldText" value="bold" autocomplete=of><span class="label"><span id="boldTextButton">Bold?</span></label>
 					<!-- Color picker -->
 					<input type="color" id="textColor" name="textColor" value="#000000">
+					<!-- Download button -->
+					<label><input type="button" id="downloadButton" name="downloadButton" value="download"><span class="label"><span id="donwloadButton">Download</span></label>
 				</div>
-				<p class="disclaimer hidden">Edit the text to apply new changes.</p>
+				<!-- <p class="disclaimer hidden">Edit the text to apply new changes.</p> -->
 			</div>
 		</div>
 		<div class="credits">
 			<footer>
-				<p>made by <a href="https://github.com/YacoubKahkajian">Yacoub Kahkajian</a></p>
-				<p>with a little help from the <a href="https://github.com/themadcreator/gifler">Gifler library</a> by Bill Dwyer</p>
+				<p>made by <a href="https://yacoub.xyz">yacoub kahkajian</a></p>
+				<p>with a little help from <a href="https://github.com/themadcreator/gifler">gifler</a> and <a href="https://jnordberg.github.io/gif.js/">gif.js</a></p>
 			</footer>
 		</div>
    </body>
