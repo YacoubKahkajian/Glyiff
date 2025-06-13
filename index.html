@@ -32,11 +32,20 @@
 					  <option value="Futura">Futura (Mac only)</option>
 					</select><br></br>
 					<!-- Bold text toggle -->
-					<label><input type="checkbox" id="boldText" name="boldText" value="bold" autocomplete=of><span class="label"><span id="boldTextButton">Bold?</span></label>
+					<label tabindex="0" onkeydown="document.getElementById('boldText').checked = !document.getElementById('boldText').checked">
+    					<input type="checkbox" id="boldText" name="boldText" value="bold" autocomplete=off><span id="boldTextButton" class="label boldLabel">
+    					<span>Bold?</span>
+					</label>
+					<!-- Condense text toggle -->
+					<label tabindex="0" onkeydown="document.getElementById('squeezeText').checked = !document.getElementById('squeezeText').checked">
+    					<input type="checkbox" id="squeezeText" name="squeezeText" value="bold" autocomplete=off><span id="squeezeTextButton" class="label squeezeLabel">
+    					<span>Squeeze?</span>
+					</label>
 					<!-- Color picker -->
 					<input type="color" id="textColor" name="textColor" value="#000000">
-					<!-- Download button -->
-					<label><input type="button" id="downloadButton" name="downloadButton" value="download"><span class="label"><span id="donwloadButton">Download</span></label>
+				</div><br>
+				<div class="downloadOptions">
+				    <label><input type="button" id="download" name="downloadButton" value="download" style="display: none;"><span id="downloadButton" class="label"><span>DOWNLOAD</span></label>
 				</div>
 				<!-- <p class="disclaimer hidden">Edit the text to apply new changes.</p> -->
 			</div>

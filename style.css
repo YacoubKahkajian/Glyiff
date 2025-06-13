@@ -10,6 +10,25 @@ canvas {
     background-color: white;
 }
 
+.label {
+    background: #f1f1f1;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    padding: 8px;
+    user-select: none;
+    transition: all;
+}
+
+.boldLabel.animate {
+    animation: 500ms bold-shake forwards;
+}
+
+.squeezeLabel.animate {
+    animation: 500ms condense-squeeze forwards;
+}
+
 @media (min-width: 600px) {
     #canvasLocation {
         justify-self: end;
@@ -37,20 +56,9 @@ canvas {
         padding-left: 10px;
         padding-right: 10px;
     }
-
-    .label {
-        background: #f1f1f1;
-        font-weight: bold;
-        border-radius: 20px;
-        display: flex;
-        justify-content: center;
-        width: 70px;
-        padding: 7px;
-        user-select: none;
-    }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
     #canvasLocation {
         align-self: center;
     }
@@ -67,32 +75,29 @@ canvas {
 
     .textOptions {
         display: flex;
-        flex-direction: column;
         gap: 5px;
         align-items: stretch;
     }
 
     .label {
-        background: #f1f1f1;
-        font-weight: bold;
-        border-radius: 20px;
-        display: flex;
-        justify-content: center;
         align-items: stretch;
-        padding: 7px;
-        user-select: none;
     }
 
     select {
         border: none;
         background-color: #f1f1f1;
         border-radius: 20px;
-        padding: 10px;
     }
 
     textarea {
         width: 100%;
     }
+}
+
+input,
+select,
+label {
+    cursor: pointer;
 }
 
 .disclaimer {
@@ -125,8 +130,8 @@ input[type="checkbox"]:checked + .label {
 input[type="color"] {
     appearance: none;
     border: black;
-    background-color: transparent;
     align-self: center;
+    border-radius: 20px;
 }
 
 input[type="color"]::-webkit-color-swatch {
@@ -141,4 +146,62 @@ input[type="color"]::-moz-color-swatch {
 
 .hidden {
     visibility: hidden;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#downloadButton {
+    width: 400px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+}
+
+@keyframes bold-shake {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    13% {
+        transform: rotate(-10deg) scale(0.8);
+    }
+    25% {
+        transform: rotate(0) scale(0.8);
+    }
+    38% {
+        transform: rotate(10deg) scale(0.8);
+    }
+    50% {
+        transform: rotate(0deg) scale(0.8);
+        font-weight: bold;
+    }
+    63% {
+        transform: rotate(-10deg) scale(0.8);
+    }
+    75% {
+        transform: rotate(0deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes condense-squeeze {
+    0% {
+        transform: scale(1);
+        letter-spacing: normal;
+    }
+    13% {
+        transform: scale(0.8);
+    }
+    50% {
+        letter-spacing: -3px;
+    }
+    75% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

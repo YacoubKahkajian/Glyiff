@@ -3,7 +3,9 @@ const caption = document.getElementById("caption");
 const fontDropdown = document.getElementById("fontDropdown");
 const boldText = document.getElementById("boldText");
 const boldButtonText = document.getElementById("boldTextButton");
-const downloadButton = document.getElementById("downloadButton");
+const squeezeText = document.getElementById("squeezeText");
+const squeezeButtonText = document.getElementById("squeezeTextButton");
+const downloadButton = document.getElementById("download");
 const textColor = document.getElementById("textColor");
 let c = document.getElementById("view");
 let originalHeight = 0;
@@ -41,14 +43,28 @@ if (boldText.checked) {
   boldButtonText.innerHTML = "Bold!";
 }
 
-boldText.addEventListener("click", () => {
-  document.querySelector(".disclaimer").classList.remove("hidden");
+boldText.addEventListener("click", toggleBoldButton);
+boldButtonText.addEventListener("keydown", toggleBoldButton);
+squeezeText.addEventListener("click", toggleSqueezeButton);
+squeezeButtonText.addEventListener("keydown", toggleSqueezeButton);
+
+function toggleBoldButton() {
   if (boldButtonText.innerHTML == "Bold!") {
     boldButtonText.innerHTML = "Bold?";
   } else {
     boldButtonText.innerHTML = "Bold!";
   }
-});
+  boldButtonText.classList.toggle("animate");
+}
+
+function toggleSqueezeButton() {
+  if (squeezeButtonText.innerHTML == "Squeeze!") {
+    squeezeButtonText.innerHTML = "Squeeze?";
+  } else {
+    squeezeButtonText.innerHTML = "Squeeze!";
+  }
+  squeezeButtonText.classList.toggle("animate");
+}
 
 function handleFiles(sample) {
   // Reset everything when a new GIF is uploaded.
@@ -152,6 +168,9 @@ function changeFont(ctx) {
     ctx.font = "30px " + fontDropdown.value;
     if (boldText.checked) {
       ctx.font = "bold " + ctx.font;
+    }
+    if (squeezeText.checked) {
+      ctx.font = "condensed " + ctx.font;
     }
     ctx.fillText(line, c.width / 2, lineNumber * 50);
   });
