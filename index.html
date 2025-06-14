@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-		<script langauage="javascript" type="module" src="script.js" defer></script>
 		<script type="text/javascript" src="resources/gifler.js"></script>
 		<script type="text/javascript" src="resources/gif.js"></script>
 		<script type="text/javascript" src="resources/gif.worker.js"></script>
+		<script type="module" src="js/main.js" defer></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<title>Glyiff (beta)</title>
 		<meta name="author" content="Yacoub Kahkajian">
@@ -12,7 +12,7 @@
 		<meta property="og:title" content="Glyiff (beta)" />
 		<meta property="og:description" content="A light and fun web app to caption GIFs."/>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=5.0, minimum-scale=0.7, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, minimum-scale=0.7, user-scalable=no">
    </head>
    <body>
 		<h1>Glyiff<sup>(beta)</sup></h1>
@@ -22,9 +22,9 @@
 			</div>
 			<div class="options">
 				<!-- File upload -->
-				<input type="file" id="input" accept="image/gif" autocomplete=off></input><br></br>
+				<input type="file" id="input" accept="image/gif" autocomplete="off">
 				<!-- Text box -->
-				<textarea id="caption" name="caption" rows="4" cols="50" autocomplete=off></textarea><br></br>
+				<textarea id="caption" name="caption" rows="4" autocomplete="off" placeholder="Enter caption text..."></textarea>
 				<div class="textOptions">
 					<!-- Font selection -->
 					<select name="fontDropdown" id="fontDropdown">
@@ -32,24 +32,23 @@
 					  <option value="serif">Serif</option>
 					  <option value="cursive">Comic Sans</option>
 					  <option value="Futura">Futura (Mac only)</option>
-					</select><br></br>
+					</select>
 					<!-- Bold text toggle -->
 					<label tabindex="0" onkeydown="document.getElementById('boldText').checked = !document.getElementById('boldText').checked">
-    					<input type="checkbox" id="boldText" name="boldText" value="bold" autocomplete=off><span id="boldTextButton" class="label boldLabel">
+					<input type="checkbox" id="boldText" name="boldText" value="bold" autocomplete="off"><span id="boldTextButton" class="label boldLabel">
     					<span>Bold?</span>
 					</label>
 					<!-- Condense text toggle -->
 					<label tabindex="0" onkeydown="document.getElementById('squeezeText').checked = !document.getElementById('squeezeText').checked">
-    					<input type="checkbox" id="squeezeText" name="squeezeText" value="bold" autocomplete=off><span id="squeezeTextButton" class="label squeezeLabel">
+					<input type="checkbox" id="squeezeText" name="squeezeText" value="condensed" autocomplete="off"><span id="squeezeTextButton" class="label squeezeLabel">
     					<span>Squeeze?</span>
 					</label>
 					<!-- Color picker -->
 					<input type="color" id="textColor" name="textColor" value="#000000">
-				</div><br>
+				</div>
 				<div class="downloadOptions">
 				    <label><input type="button" id="download" name="downloadButton" value="download" style="display: none;"><span id="downloadButton" class="label"><span>DOWNLOAD</span></label>
 				</div>
-				<!-- <p class="disclaimer hidden">Edit the text to apply new changes.</p> -->
 			</div>
 		</div>
 		<div class="credits">

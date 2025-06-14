@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
     font-family: sans-serif;
 }
@@ -10,116 +11,15 @@ canvas {
     background-color: white;
 }
 
-.label {
-    background: #f1f1f1;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    width: 70px;
-    padding: 8px;
-    user-select: none;
-    transition: all;
-}
-
-.boldLabel.animate {
-    animation: 500ms bold-shake forwards;
-}
-
-.squeezeLabel.animate {
-    animation: 500ms condense-squeeze forwards;
-}
-
-@media (min-width: 600px) {
-    #canvasLocation {
-        justify-self: end;
-    }
-
-    .content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        gap: 2%;
-    }
-
-    .textOptions {
-        display: flex;
-        gap: 5px;
-        align-items: stretch;
-    }
-
-    select {
-        border: none;
-        background-color: #f1f1f1;
-        border-radius: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-@media only screen and (max-width: 850px) {
-    #canvasLocation {
-        align-self: center;
-    }
-
-    .options {
-        align-self: center;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .textOptions {
-        display: flex;
-        gap: 5px;
-        align-items: stretch;
-    }
-
-    .label {
-        align-items: stretch;
-    }
-
-    select {
-        border: none;
-        background-color: #f1f1f1;
-        border-radius: 20px;
-    }
-
-    textarea {
-        width: 100%;
-    }
-}
-
+/* ===== Form Elements ===== */
 input,
 select,
 label {
     cursor: pointer;
 }
 
-.disclaimer {
-    color: gray;
-    font-weight: bold;
-    font-size: 9pt;
-}
-
-.credits {
-    text-align: center;
-    color: gray;
-    font-size: 9pt;
-}
-
 input[type="checkbox"] {
     display: none;
-}
-
-textarea {
-    border: none;
-    background-color: #f1f1f1;
-    border-radius: 10px;
 }
 
 input[type="checkbox"]:checked + .label {
@@ -144,6 +44,47 @@ input[type="color"]::-moz-color-swatch {
     border-radius: 20px;
 }
 
+input[type="file"] {
+    text-align: center;
+}
+
+textarea {
+    border: none;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    width: 340px;
+}
+
+select {
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+}
+
+/* ===== Custom UI Elements ===== */
+.label {
+    background: #f1f1f1;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    padding: 8px;
+    user-select: none;
+    transition: all;
+}
+
+.boldLabel.animate {
+    animation: 500ms bold-shake forwards;
+}
+
+.squeezeLabel.animate {
+    animation: 500ms condense-squeeze forwards;
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -153,12 +94,89 @@ input[type="color"]::-moz-color-swatch {
 }
 
 #downloadButton {
-    width: 400px;
+    width: 344px;
     color: white;
     background-color: black;
     font-weight: bold;
 }
 
+/* ===== Layout ===== */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    gap: 2%;
+}
+
+.textOptions {
+    display: flex;
+    gap: 5px;
+    align-items: stretch;
+}
+
+.credits {
+    text-align: center;
+    color: gray;
+    font-size: 9pt;
+}
+
+.disclaimer {
+    color: gray;
+    font-weight: bold;
+    font-size: 9pt;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+/* ===== Desktop Styles ===== */
+@media (min-width: 600px) {
+    #canvasLocation {
+        justify-self: end;
+    }
+}
+
+/* ===== Mobile Styles ===== */
+@media only screen and (max-width: 850px) {
+    #canvasLocation {
+        align-self: center;
+    }
+
+    .options {
+        align-self: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .textOptions {
+        display: flex;
+        gap: 5px;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .label {
+        align-items: stretch;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #view {
+        width: 90vw;
+    }
+}
+
+/* ===== Animations ===== */
 @keyframes bold-shake {
     0% {
         transform: rotate(0) scale(1);
