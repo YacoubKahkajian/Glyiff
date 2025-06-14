@@ -100,6 +100,10 @@ select {
     font-weight: bold;
 }
 
+#downloadButton.animate {
+    animation: 500ms pop-off forwards;
+}
+
 /* ===== Layout ===== */
 .content {
     display: grid;
@@ -221,5 +225,35 @@ select {
     }
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes pop-off {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    13% {
+        transform: rotate(-10deg) scale(1.2);
+    }
+    25% {
+        width: 100px;
+        transform: rotate(0) scale(1.2);
+    }
+    38% {
+        transform: rotate(10deg) scale(1.2);
+    }
+    50% {
+        transform: rotate(0deg) scale(1.2);
+    }
+    63% {
+        transform: rotate(-10deg) scale(1.2);
+    }
+    75% {
+        width: 100px;
+        transform: rotate(0deg) scale(1.1);
+    }
+    100% {
+        width: 344px;
+        transform: rotate(0) scale(1);
     }
 }
